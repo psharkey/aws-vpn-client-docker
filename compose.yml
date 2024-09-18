@@ -1,0 +1,12 @@
+services:
+  vpn:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./profile.ovpn:/opt/vpn/profile.ovpn:ro
+    devices:
+      - "/dev/net/tun:/dev/net/tun"
+    cap_add:
+      - NET_ADMIN
+    network_mode: host
