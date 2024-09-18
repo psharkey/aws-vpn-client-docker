@@ -31,8 +31,6 @@ echo
 # get SID from the reply
 VPN_SID=$(echo "$OVPN_OUT" | awk -F : '{print $7}')
 
-echo "Running OpenVPN with sudo. Enter password if requested"
-
 # Finally OpenVPN with a SAML response we got
 # Delete saml-response.txt after connect
 ./openvpn-bin --config "$OVPN_CONF" \
