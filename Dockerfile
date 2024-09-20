@@ -30,10 +30,10 @@ FROM alpine:3.20.3 AS container
 
 WORKDIR /opt/openvpn
 
-RUN apk add --no-cache bash busybox-binsh iproute2-minimal libcap-ng libcrypto3 libssl3 lz4-libs lzo musl libnl3 openssl bind-tools
+RUN apk add --no-cache busybox-binsh iproute2-minimal libcap-ng libcrypto3 libssl3 lz4-libs lzo musl libnl3 openssl bind-tools
 
 COPY --from=ovpn-builder /opt/openvpn/openvpn-bin .
 COPY --from=server-builder /opt/go-server/server ./go_server
 COPY entrypoint.sh .
 
-ENTRYPOINT ["bash", "./entrypoint.sh"]
+ENTRYPOINT ["ash", "./entrypoint.sh"]
