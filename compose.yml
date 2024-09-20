@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ./profile.ovpn:/opt/vpn/profile.ovpn:ro
+      - ./profile.ovpn:/opt/openvpn/profile.ovpn:ro
     devices:
       - "/dev/net/tun:/dev/net/tun"
     cap_add:
