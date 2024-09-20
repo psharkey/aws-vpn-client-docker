@@ -26,9 +26,10 @@ This repository aims to package the work of Alex Samorukov and Botify Labs on ma
 1. Clone this repository
 2. Download your AWS VPN client profile into a directory.
 3. Adjust the mount in `compose.yml` to read your ovpn profile file
-   1. Don't change to mount target!
+   1. Don't change the mount target!
 4. Run `docker compose up --build`
-5. Enjoy
+   1. Also grab the login link from `docker compose logs`
+6. Enjoy
 
 ### Use a prebuilt container
 
