@@ -22,6 +22,13 @@ This repository aims to package the work of Alex Samorukov and Botify Labs on ma
 
 ## How to use
 
+### Use a prebuilt container
+1. Download your AWS VPN client profile into a directory
+2. Run `docker run --name vpn -d --net host -v /path/to/profile.ovpn:/opt/openvpn/profile.ovpn:ro --device /dev/net/tun:/dev/net/tun --cap-add NET_ADMIN kpalang/aws-vpn:latest`
+   1. Run `docker logs -f vpn` to grab the login link
+   2. After logging in, you can safely exit the log tail with `Ctrl-C`
+3. Enjoy
+
 ### Build the container yourself
 1. Clone this repository
 2. Download your AWS VPN client profile into a directory.
@@ -30,7 +37,3 @@ This repository aims to package the work of Alex Samorukov and Botify Labs on ma
 4. Run `docker compose up --build`
    1. Also grab the login link from `docker compose logs`
 6. Enjoy
-
-### Use a prebuilt container
-
-_TODO_
