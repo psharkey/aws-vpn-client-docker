@@ -4,7 +4,7 @@ OVPN_CONF="profile_rendered.ovpn"
 sed -E 's/auth-user-pass|auth-federate|auth-retry interact|remote-random-hostname//g' profile.ovpn > "$OVPN_CONF"
 
 VPN_HOST=$(cat "$OVPN_CONF" | grep 'remote ' | awk '{ print $2}')
-PORT=443
+PORT=$(cat "$OVPN_CONF" | grep 'remote ' | awk '{ print $3}')
 
 RAND=$(openssl rand -hex 12)
 SRV=$(dig a +short "${RAND}.${VPN_HOST}" | head -n1)
